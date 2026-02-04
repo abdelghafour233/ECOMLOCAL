@@ -1,11 +1,71 @@
-<div align="center">
+# Souq Maroc - Arabic E-commerce Site
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A modern, responsive e-commerce landing page built with React, TypeScript, and Tailwind CSS.
 
-  <h1>Built with AI Studio</h2>
+## Getting Started
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+1.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+2.  **Run locally:**
+    ```bash
+    npm start
+    ```
 
-</div>
+## Deployment Instructions
+
+### Option 1: Vercel (Recommended)
+
+1.  Push this code to a GitHub repository.
+2.  Go to [Vercel](https://vercel.com).
+3.  Click "Add New..." -> "Project".
+4.  Import your GitHub repository.
+5.  Framework Preset will be detected automatically (Create React App).
+6.  Click **Deploy**.
+
+### Option 2: GitHub Pages
+
+1.  Open `package.json` and add a `homepage` field:
+    ```json
+    "homepage": "https://yourusername.github.io/repo-name",
+    ```
+
+2.  Install `gh-pages`:
+    ```bash
+    npm install gh-pages --save-dev
+    ```
+
+3.  Add these scripts to `package.json`:
+    ```json
+    "scripts": {
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build",
+      // ... other scripts
+    }
+    ```
+
+4.  Run the deploy command:
+    ```bash
+    npm run deploy
+    ```
+
+## Form Submission
+
+Currently, the form simulates a submission. To connect to real email notifications:
+
+1.  Go to [Formspree](https://formspree.io/).
+2.  Create a new form.
+3.  In `components/OrderModal.tsx`, replace the `setTimeout` logic inside `handleSubmit` with a real `fetch` request to your Formspree endpoint.
+
+```typescript
+fetch("https://formspree.io/f/YOUR_FORM_ID", {
+  method: "POST",
+  body: JSON.stringify(formData),
+  headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+  }
+}).then(...)
+```
